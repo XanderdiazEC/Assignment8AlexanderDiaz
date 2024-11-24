@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Error message container -->
+        <div id="errorContainer" style="display: none;" class="error-message"></div>
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>Todo List</h1>
+            <p>Manage your tasks</p>
+        </div>
+
+        <!-- Add Task Form -->
+        <div class="card">
+            <h2>Add New Task</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskDescription">Task Description</label>
+                    <input type="text" id="taskDescription" required placeholder="Enter task description">
+                </div>
+                <div class="form-group">
+                    <label for="taskPriority">Priority</label>
+                    <select id="taskPriority" required>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-add">Add Task</button>
+            </form>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="card">
+            <h2>Filter Tasks</h2>
+            <div class="filter-buttons">
+                <button onclick="window.showAllTasks()" class="btn-filter">All</button>
+                <button onclick="window.filterTasks('high')" class="btn-filter">High</button>
+                <button onclick="window.filterTasks('medium')" class="btn-filter">Medium</button>
+                <button onclick="window.filterTasks('low')" class="btn-filter">Low</button>
+            </div>
+        </div>
+
+        <!-- Task List -->
+        <div class="card">
+            <h2>Tasks</h2>
+            <div id="taskList" class="task-list">
+                <!-- Template for each task -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <h3>Task Description</h3>
+                        <p class="task-priority">Priority: High</p>
+                        <p class="task-date">Created: Date</p>
+                    </div>
+                    <button onclick="window.deleteTaskHandler(taskId)" class="btn-delete">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript at the end of body -->
+    <script src="app.js"></script>
+</body>
+</html>

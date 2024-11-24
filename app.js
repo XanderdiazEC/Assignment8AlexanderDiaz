@@ -1,4 +1,4 @@
-// Initialize the app
+
 class TodoApp {
     constructor() {
         this.tasks = [];
@@ -28,7 +28,7 @@ class TodoApp {
             console.log('%cPriority:', 'font-weight: bold', newTask.priority);
             console.log('%cCreated:', 'font-weight: bold', newTask.createdAt);
             console.log('---------------------');
-            this.displayTasks(); // Update display after adding
+            this.displayTasks(); 
             return newTask;
         } catch (error) {
             console.error('%cError adding task:', 'color: #dc3545', error.message);
@@ -49,7 +49,7 @@ class TodoApp {
                 console.log('---------------------');
             });
         }
-        this.displayTasks(); // Update display
+        this.displayTasks(); 
         return [...this.tasks];
     }
 
@@ -65,7 +65,7 @@ class TodoApp {
             console.log('%cTask not found', 'color: #dc3545');
         }
         console.log('---------------------');
-        this.displayTasks(); // Update display after deleting
+        this.displayTasks(); 
         return deleted;
     }
 
@@ -77,7 +77,7 @@ class TodoApp {
 
         if (filteredTasks.length === 0) {
             console.log('No tasks found with this priority');
-            this.displayTasks(); // Show empty state
+            this.displayTasks(); 
         } else {
             filteredTasks.forEach(task => {
                 console.log(`\n%cID: ${task.id}`, 'font-weight: bold');
@@ -86,7 +86,7 @@ class TodoApp {
                 console.log(`Created: ${task.createdAt}`);
                 console.log('---------------------');
             });
-            // Display only filtered tasks
+            
             this.displayFilteredTasks(filteredTasks);
         }
         return filteredTasks;
@@ -144,7 +144,7 @@ class TodoApp {
             taskList.appendChild(taskElement);
         });
 
-        // Also log to console for debugging
+        
         console.log('\n%cCurrent Tasks List:', 'color: #4CAF50; font-weight: bold');
         console.table(this.tasks.map(task => ({
             ID: task.id,
@@ -155,10 +155,10 @@ class TodoApp {
     }
 }
 
-// Initialize the app
+
 const todoApp = new TodoApp();
 
-// Event Handlers
+
 function addTaskHandler(event) {
     try {
         event.preventDefault();
@@ -186,7 +186,7 @@ function addTaskHandler(event) {
     }
 }
 
-// Delete task handler
+
 window.deleteTaskHandler = function(taskId) {
     try {
         if (confirm('Are you sure you want to delete this task?')) {
@@ -216,7 +216,7 @@ window.filterTasks = function(priority) {
     }
 };
 
-// Set up event listeners
+
 window.onload = function() {
     try {
         const form = document.getElementById('taskForm');
@@ -231,7 +231,7 @@ window.onload = function() {
         alert('Error initializing the application. Please refresh the page.');
     }
 
-    // Initial console message
+    
     console.log('%cWelcome to Todo App!', 'color: #4CAF50; font-size: 16px; font-weight: bold');
     console.log('Use the interface to manage your tasks. All operations will be logged here.');
     console.log('To delete a task, use the delete button next to each task');
